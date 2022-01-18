@@ -5,7 +5,7 @@ const initialState = {
     cash: 0,
 };
 
-const reducer = (state = initialState, { type, payload }) => {
+export const cashReducer = (state = initialState, { type, payload }) => {
     switch (type) {
         case ADD_CASH:
             return {
@@ -22,7 +22,6 @@ const reducer = (state = initialState, { type, payload }) => {
             return state
     }
 };
-export default reducer;
 
 export const setAddCash = (cost) => ({
     type: ADD_CASH,
