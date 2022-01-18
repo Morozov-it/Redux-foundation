@@ -3,10 +3,12 @@ import { setAddCash, setDeleteCash } from './reducers/reducer';
 import {useDispatch, useSelector} from 'react-redux';
 
 function App() {
+  //хуки для взаимодействия с redux
   const dispatch = useDispatch();
   const state = useSelector(state => ({
     cash: state.cash
   }));
+
   const addCash = (cash) => {
     dispatch(setAddCash(cash))
   }
