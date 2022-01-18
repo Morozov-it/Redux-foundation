@@ -1,4 +1,6 @@
 .app {
+    width: 725px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,4 +9,8 @@
 }
 button {
     margin: 5px;
+}
+.customers {
+    align-self: stretch;
+    padding: 5px;
 }

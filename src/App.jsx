@@ -2,6 +2,7 @@ import './App.css';
 import { setAddCash, setDeleteCash } from './store/cashReducer';
 import { setAddCustomer, setDeleteCustomer } from './store/customerReducer';
 import {useDispatch, useSelector} from 'react-redux';
+import { getUsers } from './api/api';
 
 function App() {
   //хуки для взаимодействия с redux
@@ -33,7 +34,7 @@ function App() {
       <header>
         <h1>Redux Bank</h1>
         <h2 className="text-muted">Money at the bank</h2>
-        <h3>{state.cash}</h3>
+        <h3>{state.cash} ₽</h3>
       </header>
       <div style={{display: "flex"}}>
         <button className="btn btn-outline-primary"
@@ -41,9 +42,11 @@ function App() {
         <button className="btn btn-outline-primary"
           onClick={() => deleteCash(Number(prompt()))}>Delete money</button>
         <button className="btn btn-primary"
-          onClick={()=>addCustomer(prompt())}>Add customer</button>
+          onClick={() => addCustomer(prompt())}>Add customer</button>
         <button className="btn btn-primary"
-          onClick={()=>{deleteCustomer(prompt())}}>Delete customer</button>
+          onClick={()=>dispatch(getUsers())}>Add many customers</button>
+        <button className="btn btn-primary"
+          onClick={()=>deleteCustomer(prompt())}>Delete customer</button>
       </div>
       <div className="customers">
       {state.customers.length > 0 ?
