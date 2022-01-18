@@ -6,7 +6,7 @@ import thunk from 'redux-thunk';
 
 const rootReducer = combineReducers({
     cash: cashReducer,
-    customer: customerReducer
+    customers: customerReducer
 })
 
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
