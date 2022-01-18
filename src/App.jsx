@@ -1,11 +1,32 @@
 import './App.css';
+import { setAddCash, setDeleteCash } from './reducers/reducer';
+import {useDispatch, useSelector} from 'react-redux';
 
 function App() {
+  const dispatch = useDispatch();
+  const state = useSelector(state => ({
+    cash: state.cash
+  }));
+  const addCash = (cash) => {
+    dispatch(setAddCash(cash))
+  }
+  const deleteCash = (cash) => {
+    dispatch(setDeleteCash(cash))
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        Learn React
+    <div className="app">
+      <header>
+        <h1>Redux Bank</h1>
+        <h2 className="text-muted">Money at the bank</h2>
+        <h3>{state.cash}</h3>
       </header>
+      <div style={{display: "flex"}}>
+        <button className="btn btn-outline-primary"
+          onClick={()=>addCash(Number(prompt()))}>Add money</button>
+        <button className="btn btn-outline-primary"
+          onClick={()=>deleteCash(Number(prompt()))}>Delete money</button>
+      </div>
     </div>
   );
 }
